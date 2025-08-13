@@ -1,0 +1,65 @@
+services:
+  pdfium:
+    container_name: pdfium
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - GO_VERSION=1.24.4
+    ports:
+      - "9333:9333"
+    networks:
+      - backend
+    restart: unless-stopped
+
+  postgres:
+    container_name: postgres
+    image: postgres:17.5
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: pdfium
+      DB_USER: postgres
+      DB_PASSWORD: password
+      PGDATA: /data/postgres
+      PGCONNECT_TIMEOUT: 10
+    volumes:
+       - postgres_data:/data/postgres
+       - uploads:/app/uploads
+    ports:
+     - "5432:5432"
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis:
+    container_name: refis
+    image: redis:7.0-alpine
+    command: redis-server --requirepass password
+    networks:
+      - backend
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "password", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+    postgres_data:
+    redis_data:
+    uploads:

@@ -1,0 +1,8 @@
+{"level":"info","ts":"2025-07-16T05:37:31.738+0300","caller":"logger/logger.go:50","msg":"Logger initialized successfully"}
+{"level":"info","ts":"2025-07-16T05:39:44.836+0300","caller":"logger/logger.go:50","msg":"Logger initialized successfully"}
+{"level":"info","ts":"2025-07-16T05:40:55.707+0300","caller":"logger/logger.go:50","msg":"Logger initialized successfully"}
+{"level":"fatal","ts":"2025-07-16T05:40:55.708+0300","caller":"cmd/main.go:21","msg":"failed run app","error":"failed to load initial config: failed to load config: wrong type ptr","stacktrace":"main.main\n\t/Users/nikitapavlov/Documents/Projects/workDir/PDFium/cmd/main.go:21\nruntime.main\n\t/opt/homebrew/Cellar/go/1.24.4/libexec/src/runtime/proc.go:283"}
+{"level":"info","ts":"2025-07-16T05:41:08.875+0300","caller":"logger/logger.go:50","msg":"Logger initialized successfully"}
+{"level":"info","ts":"2025-07-16T05:41:54.999+0300","caller":"logger/logger.go:50","msg":"Logger initialized successfully"}
+{"level":"info","ts":"2025-07-16T05:42:21.943+0300","caller":"logger/logger.go:50","msg":"Logger initialized successfully"}
+{"level":"fatal","ts":"2025-07-16T05:42:22.089+0300","caller":"cmd/main.go:21","msg":"failed run app","error":"failed to init connection pool with postgres: postgres is unhealthy: failed to connect to `user=postgres database=pdfium`:\n\thostname resolving error: lookup postgres: no such host\n\tlookup postgres: no such host","stacktrace":"main.main\n\t/Users/nikitapavlov/Documents/Projects/workDir/PDFium/cmd/main.go:21\nruntime.main\n\t/opt/homebrew/Cellar/go/1.24.4/libexec/src/runtime/proc.go:283"}

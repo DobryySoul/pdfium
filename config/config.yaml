@@ -1,0 +1,18 @@
+host: pdfium
+port: 9333
+
+postgres:
+  username: postgres
+  password: password
+  host: postgres
+  port: 5432
+  database: pdfium
+  max_conn: 50
+  min_conn: 0
+
+redis:
+  host: redis
+  port: 6379
+  username: default
+  password: password
+  db: 0
