@@ -8,3 +8,9 @@ migrations-up:
 
 migrations-down:
 	docker-compose run --rm pdfium migrate -path /app/migrations -database '$(DB_URL)' down
+
+up:
+	docker-compose up -d --build
+
+down:
+	docker-compose down -v
